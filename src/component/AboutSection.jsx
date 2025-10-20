@@ -1,5 +1,3 @@
-"use client";
-
 import React from 'react'
 import { GraduationCap, Languages as LanguagesIcon, Sparkles } from 'lucide-react'
 

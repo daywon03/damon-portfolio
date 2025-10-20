@@ -1,6 +1,6 @@
 "use client";
 import React from "react";
-import Image from "next/image";
+// Using standard img tag instead of next/image
 import { ExternalLink, Zap, Users } from "lucide-react";
 
 const projects = [
@@ -44,7 +44,7 @@ export default function ProjectsSection() {
             return (
               <div key={p.title} className="overflow-hidden bg-[#0f0f10] border border-white/10 rounded-xl hover:shadow-xl hover:shadow-blue-500/10 transition">
                 <div className="relative h-48">
-                  <Image src={p.image} alt={p.title} fill className="object-cover" />
+                  <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
                   <div className="absolute top-4 left-4">
                     <span className="px-2 py-1 text-xs rounded-md border border-white/10 text-white/90 bg-white/10">{p.type}</span>
                   </div>

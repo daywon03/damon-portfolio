@@ -1,6 +1,6 @@
 "use client";
 import React, { useState } from "react";
-import { EnvelopeIcon, PhoneIcon, MapPinIcon, PaperAirplaneIcon } from "@heroicons/react/24/outline";
+import { Mail, Phone, MapPin, Send } from "lucide-react";
 
 export default function ContactSection() {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -10,9 +10,9 @@ export default function ContactSection() {
   };
 
   const info = [
-    { icon: EnvelopeIcon, label: "Email", value: "badamon@gmail.com", href: "mailto:badamon@gmail.com" },
-    { icon: PhoneIcon, label: "Phone", value: "+33 7 53 54 43 11", href: "tel:+33753544311" },
-    { icon: MapPinIcon, label: "Address", value: "59 Avenue de Flandre, 75019 Paris", href: "https://maps.google.com/?q=59+Avenue+de+Flandre+75019+Paris" },
+    { icon: Mail, label: "Email", value: "badamon@gmail.com", href: "mailto:badamon@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+33 7 53 54 43 11", href: "tel:+33753544311" },
+    { icon: MapPin, label: "Address", value: "59 Avenue de Flandre, 75019 Paris", href: "https://maps.google.com/?q=59+Avenue+de+Flandre+75019+Paris" },
   ];
 
   return (
@@ -55,7 +55,7 @@ export default function ContactSection() {
               <textarea id="message" rows={6} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full rounded-md border border-white/10 bg-transparent px-3 py-2 text-white/90 focus:outline-none focus:ring-2 focus:ring-blue-500/50" placeholder="Your message..." required />
             </div>
             <button type="submit" className="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-blue-500 to-blue-900 px-4 py-2 text-white">
-              <PaperAirplaneIcon className="w-4 h-4" /> Send message
+              <Send className="w-4 h-4" /> Send message
             </button>
           </form>
         </div>

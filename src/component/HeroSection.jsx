@@ -1,11 +1,9 @@
-"use client";
-import Image from "next/image";
 import React from "react";
 import { Mail, Phone, MapPin, Download, Github, Linkedin } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
-  const titles = ["Damon", "Full stack developer", "Web3 developer"]; 
+  const titles = ["Full stack developer", "Web3 developer"]; 
   return (
     <section className="min-h-[90vh] flex items-center justify-center px-4">
       <div className="container mx-auto max-w-5xl">
@@ -13,17 +11,19 @@ const HeroSection = () => {
         <div className="md:hidden space-y-8">
           {/* Title */}
           <div>
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 text-xl">Hello, I'm</span>
-            <br/>
-            <TypeAnimation
-              sequence={[
-                titles[0], 1000, titles[1], 1000, titles[2], 1000,
-              ]}
-              wrapper="span"
-              speed={50}
-              repeat={Infinity}
-              className="text-3xl"
-            />              
+            <span className="text-4xl b ">Hey, I'm Damon</span>
+            <div className="mt-2 flex items-center gap-2 text-2xl">
+              <span className="text-white">I am a</span>
+              <TypeAnimation
+                sequence={[
+                  titles[0], 1000, titles[1], 1000,
+                ]}
+                wrapper="span"
+                speed={50}
+                repeat={Infinity}
+                className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-semibold"
+              />
+            </div>              
           </div>
 
           {/* Profile Image */}
@@ -44,7 +44,7 @@ const HeroSection = () => {
           {/* Rest of content */}
           <div className="space-y-6">
             <p className="text-base text-muted-foreground">
-              I'm Daywon, a Full‑Stack Developer
+              I'm a self-learner, passionate and curious to dig deeper and expand my knowledge. With a positive attitude and a growth mindset, I am ready to make meaningful contributions and achieve great things.
             </p>
 
             {/* CTA Buttons */}
@@ -99,21 +99,23 @@ const HeroSection = () => {
           {/* Left - Text Content */}
           <div className="space-y-6">
             <div className="space-y-4">
-              <div>
-                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 text-xl">Hello, I'm</span>
-                <br/>
-                <TypeAnimation
-                  sequence={[
-                    titles[0], 1000, titles[1], 1000, titles[2], 1000,
-                  ]}
-                  wrapper="span"
-                  speed={50}
-                  repeat={Infinity}
-                  className="text-4xl"
-                />              
+              <div className="space-y-2">
+                <span className="text-4xl">Hey, I'm Damon</span>
+                <div className="flex items-center gap-2 text-2xl">
+                  <span className="text-white">I am a</span>
+                  <TypeAnimation
+                    sequence={[
+                      titles[0], 1000, titles[1], 1000,
+                    ]}
+                    wrapper="span"
+                    speed={50}
+                    repeat={Infinity}
+                    className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-semibold"
+                  />
+                </div>              
               </div>
-              <p className="text-base text-muted-foreground">
-                I'm Daywon, a Full‑Stack Developer
+              <p className="text-s text-muted-foreground">
+                I'm a self-learner, passionate and curious to dig deeper and expand my knowledge. With a positive attitude and a growth mindset, I am ready to make meaningful contributions and achieve great things.
               </p>
             </div>
 

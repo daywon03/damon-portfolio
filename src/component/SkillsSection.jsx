@@ -1,36 +1,36 @@
 "use client";
 import React from "react";
-import { CodeBracketIcon, ServerStackIcon, WrenchScrewdriverIcon, CircleStackIcon, LockClosedIcon } from "@heroicons/react/24/outline";
+import { Code2, Server, Wrench, Database, Lock } from "lucide-react";
 
 const categories = [
   {
     id: "languages",
     title: "Languages",
-    icon: CodeBracketIcon,
+    icon: Code2,
     skills: ["JavaScript", "TypeScript", "Python", "Solidity", "SQL", "Java"],
   },
   {
     id: "frameworks",
     title: "Frameworks",
-    icon: ServerStackIcon,
+    icon: Server,
     skills: ["React", "Next.js", "Express", "Django", "Hardhat"],
   },
   {
     id: "databases",
     title: "Databases",
-    icon: CircleStackIcon,
+    icon: Database,
     skills: ["MySQL", "PostgreSQL", "MongoDB"],
   },
   {
     id: "tools",
     title: "DevOps / Tools",
-    icon: WrenchScrewdriverIcon,
+    icon: Wrench,
     skills: ["Git", "Docker", "GitHub Actions", "Figma"],
   },
   {
     id: "blockchain",
     title: "Blockchain / Web3",
-    icon: LockClosedIcon,
+    icon: Lock,
     skills: ["Smart contracts", "DApps", "MetaMask", "IPFS"],
   },
 ];

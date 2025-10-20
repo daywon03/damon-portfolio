@@ -1,0 +1,57 @@
+/* stylelint-disable at-rule-no-unknown */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Base styles for text colors */
+body {
+  background-color: #121212;
+  color: white;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  color: white;
+}
+
+p, span, div {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+a {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+a:hover {
+  color: white;
+}
+
+/* Custom classes */
+.text-muted {
+  color: rgba(255, 255, 255, 0.6);
+}
+
+.text-gradient {
+  background: linear-gradient(to right, #60A5FA, #3B82F6);
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Background colors */
+.bg-card {
+  background-color: #1a1a1a;
+}
+
+/* Fix for any remaining black text */
+input, textarea, select {
+  color: white;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+button {
+  color: white;
+}
+
+.TypeAnimation {
+  color: white !important;
+}
+/* stylelint-enable at-rule-no-unknown */
