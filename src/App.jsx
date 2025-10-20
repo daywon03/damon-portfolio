@@ -1,7 +1,6 @@
 import React from 'react'
 import Navbar from './component/Navbar'
 import HeroSection from './component/HeroSection'
-import AboutSection from './component/AboutSection'
 import ProjectsSection from './component/ProjectsSection'
 import SkillsSection from './component/SkillsSection'
 import EducationSection from './component/EducationSection'
@@ -14,9 +13,8 @@ function App() {
       <Navbar />
       <div className="container mt-24 mx-auto px-12 py-4">
         <HeroSection />
-        <AboutSection />
-        <ProjectsSection />
         <SkillsSection />
+        <ProjectsSection />
         <EducationSection />
         <ContactSection />
       </div>
