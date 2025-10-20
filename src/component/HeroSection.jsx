@@ -1,56 +1,181 @@
 "use client";
 import Image from "next/image";
 import React from "react";
+import { Mail, Phone, MapPin, Download, Github, Linkedin } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
+  const titles = ["Damon", "Full stack developer", "Web3 developer"]; 
   return (
-    <section>
-      <div className="grid grid-cols-1 sm:grid-cols-12">
-        <div className="col-span-7 place-self-center text-center sm:text-left">
-          <h1 className=" text-white mb-4 text-4xl sm:text-5xl lg:text-6xl font-extrabold">
-            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-950">
-              Hello, I'm{" "}
-            </span>
-            <br />
+    <section className="min-h-[90vh] flex items-center justify-center px-4">
+      <div className="container mx-auto max-w-5xl">
+        {/* Mobile Layout */}
+        <div className="md:hidden space-y-8">
+          {/* Title */}
+          <div>
+            <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 text-xl">Hello, I'm</span>
+            <br/>
             <TypeAnimation
               sequence={[
-                // Same substring at the start will only be typed out once, initially
-                "Damon",
-                1000, // wait 1s before replacing "Mice" with "Hamsters"
-                "Full stack developer",
-                1000,
-                "Web3 developper",
-                1000,
+                titles[0], 1000, titles[1], 1000, titles[2], 1000,
               ]}
               wrapper="span"
               speed={50}
               repeat={Infinity}
-            />
-          </h1>
-          <p className=" text-white text-lg mb-6 lg:text-xl">
-            Je me présente Daywon Développeur fullstack
-          </p>
-          <div>
-            <button className="px-6 py-3 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br from-blue-400 hover:bg-slate-200 text-white">
-              Hire me
-            </button>
-            <button className="px-1 py-1 w-full sm:w-fit rounded-full mr-4 bg-gradient-to-br  from-blue-400 bg-transparent hover:bg-slate-800 text-white  mt-3">
-              <span className="block bg-[#121212] hover:bg-slate-800 rounded-full px-5 py-2">
+              className="text-3xl"
+            />              
+          </div>
+
+          {/* Profile Image */}
+          <div className="flex justify-center">
+            <div className="relative">
+              <div className="w-60 h-60 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-xl shadow-blue-500/10">
+                <img 
+                  src="/image/ProfilP-copie.png" 
+                  alt="BA DAMON" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full -z-10 blur-3xl"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full -z-10 blur-3xl"></div>
+            </div>
+          </div>
+
+          {/* Rest of content */}
+          <div className="space-y-6">
+            <p className="text-base text-muted-foreground">
+              I'm Daywon, a Full‑Stack Developer
+            </p>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <button 
+                className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-5 py-2.5 rounded-full text-sm text-white"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Hire me
+              </button>
+              <a 
+                href="/cv.pdf" 
+                className="border-blue-500/50 hover:bg-blue-500/10 px-5 py-2.5 rounded-full border inline-flex items-center text-sm text-white/90"
+              >
+                <Download className="w-4 h-4 mr-2" />
                 Download CV
-              </span>
-            </button>
+              </a>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-1.5 text-xs pt-3">
+              <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:badamon@gmail.com">
+                  badamon@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Phone className="w-4 h-4" />
+                <span>07 53 54 43 11</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <MapPin className="w-4 h-4" />
+                <span>59 Avenue de Flandre, 75019 Paris</span>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-2 pt-2">
+              <a href="https://github.com/daywon03" target="_blank" rel="noopener noreferrer" className="hover:bg-blue-500/10 hover:border-blue-500/50 h-8 w-8 inline-flex items-center justify-center rounded-md border border-white/20">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/in/ba-damon" target="_blank" rel="noopener noreferrer" className="hover:bg-blue-500/10 hover:border-blue-500/50 h-8 w-8 inline-flex items-center justify-center rounded-md border border-white/20">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
           </div>
         </div>
-        <div className="col-span-5 place-self-center mt-4 lg:mt-0">
-          <div className="rounded-full place-content-center p-2 bg-[#181818] w-[250px] h-[250px] lg:w-[400px] lg:h-[400px]">
-            <Image
-              src="/image/ProfilP-copie.png"
-              alt="hero image"
-              className=" rounded-full m-3 h-[210px] place-self-center lg:w-[335px] lg:h-[335px]"
-              width={210}
-              height={210}
-            />
+
+        {/* Desktop Layout */}
+          <div className="hidden md:grid md:grid-cols-2 gap-10 items-center">
+          {/* Left - Text Content */}
+          <div className="space-y-6">
+            <div className="space-y-4">
+              <div>
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 text-xl">Hello, I'm</span>
+                <br/>
+                <TypeAnimation
+                  sequence={[
+                    titles[0], 1000, titles[1], 1000, titles[2], 1000,
+                  ]}
+                  wrapper="span"
+                  speed={50}
+                  repeat={Infinity}
+                  className="text-4xl"
+                />              
+              </div>
+              <p className="text-base text-muted-foreground">
+                I'm Daywon, a Full‑Stack Developer
+              </p>
+            </div>
+
+            {/* CTA Buttons */}
+            <div className="flex flex-wrap gap-3">
+              <button 
+                className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-5 py-2.5 rounded-full text-sm text-white"
+                onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
+              >
+                Hire me
+              </button>
+              <a 
+                href="/cv.pdf" 
+                className="border-blue-500/50 hover:bg-blue-500/10 px-5 py-2.5 rounded-full border inline-flex items-center text-sm text-white/90"
+              >
+                <Download className="w-4 h-4 mr-2" />
+                Download CV
+              </a>
+            </div>
+
+            {/* Contact Info */}
+            <div className="space-y-1.5 text-xs pt-3">
+              <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
+                <Mail className="w-4 h-4" />
+                <a href="mailto:badamon@gmail.com">
+                  badamon@gmail.com
+                </a>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <Phone className="w-4 h-4" />
+                <span>07 53 54 43 11</span>
+              </div>
+              <div className="flex items-center gap-2 text-muted-foreground">
+                <MapPin className="w-4 h-4" />
+                <span>59 Avenue de Flandre, 75019 Paris</span>
+              </div>
+            </div>
+
+            {/* Social Links */}
+            <div className="flex gap-2 pt-2">
+              <a href="https://github.com/daywon03" target="_blank" rel="noopener noreferrer" className="hover:bg-blue-500/10 hover:border-blue-500/50 h-8 w-8 inline-flex items-center justify-center rounded-md border border-white/20">
+                <Github className="w-5 h-5" />
+              </a>
+              <a href="https://linkedin.com/in/ba-damon" target="_blank" rel="noopener noreferrer" className="hover:bg-blue-500/10 hover:border-blue-500/50 h-8 w-8 inline-flex items-center justify-center rounded-md border border-white/20">
+                <Linkedin className="w-5 h-5" />
+              </a>
+            </div>
+          </div>
+
+          {/* Right - Profile Image */}
+          <div className="flex justify-center md:justify-end">
+            <div className="relative">
+              <div className="w-72 h-72 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-xl shadow-blue-500/10">
+                <img 
+                  src="/image/ProfilP-copie.png" 
+                  alt="BA DAMON" 
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="absolute -bottom-6 -right-6 w-32 h-32 bg-primary/10 rounded-full -z-10 blur-3xl"></div>
+              <div className="absolute -top-6 -left-6 w-24 h-24 bg-primary/10 rounded-full -z-10 blur-3xl"></div>
+            </div>
           </div>
         </div>
       </div>
