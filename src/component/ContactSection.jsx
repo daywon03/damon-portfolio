@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Mail, Phone, MapPin, Send } from "lucide-react";
 import emailjs from '@emailjs/browser';
 
@@ -8,33 +8,66 @@ export default function ContactSection() {
   const [isSending, setIsSending] = useState(false);
   const [isSent, setIsSent] = useState(false);
 
-  const onSubmit = (e) => {
+  const [statusMessage, setStatusMessage] = useState(null);
+
+  // Read EmailJS config from environment (Vite) or fallback to values in file.
+  const SERVICE_ID = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_EMAILJS_SERVICE_ID
+    ? import.meta.env.VITE_EMAILJS_SERVICE_ID
+    : 'service_8ltbvi4';
+  const TEMPLATE_ID = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    ? import.meta.env.VITE_EMAILJS_TEMPLATE_ID
+    : 'template_8i4xdmb';
+  const PUBLIC_KEY = typeof import.meta !== 'undefined' && import.meta.env && import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    ? import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+    : 'YOUR_PUBLIC_KEY';
+
+  useEffect(() => {
+    // Initialize emailjs if a real public key is provided
+    if (PUBLIC_KEY && PUBLIC_KEY !== 'YOUR_PUBLIC_KEY' && typeof emailjs.init === 'function') {
+      try {
+        emailjs.init(PUBLIC_KEY);
+      } catch (err) {
+        // non-fatal
+        // console.warn('emailjs.init failed', err);
+      }
+    }
+  }, []);
+
+  const onSubmit = async (e) => {
     e.preventDefault();
     setIsSending(true);
+    setStatusMessage(null);
 
-    // Remplacez les identifiants par les vôtres dans EmailJS
-    emailjs.send(
-      'service_8ltbvi4',
-      'template_8i4xdmb',
-      {
-        from_name: form.name,
-        from_email: form.email,
-        message: form.message,
-      },
-      'YOUR_PUBLIC_KEY'
-    ).then(
-      (result) => {
-        console.log('Email sent successfully:', result.text);
-        setForm({ name: "", email: "", message: "" });
-        setIsSent(true);
-        setTimeout(() => setIsSent(false), 5000);
-      },
-      (error) => {
-        console.log("Erreur lors de l'envoi:", error.text || error);
-      }
-    ).finally(() => {
+    // Basic validation
+    if (!form.name || !form.email || !form.message) {
+      setStatusMessage({ type: 'error', text: 'Please fill all fields.' });
       setIsSending(false);
-    });
+      return;
+    }
+
+    try {
+      const result = await emailjs.send(
+        SERVICE_ID,
+        TEMPLATE_ID,
+        {
+          from_name: form.name,
+          from_email: form.email,
+          message: form.message,
+        },
+        PUBLIC_KEY
+      );
+
+      console.log('Email sent successfully:', result.text);
+      setForm({ name: "", email: "", message: "" });
+      setIsSent(true);
+      setStatusMessage({ type: 'success', text: 'Message sent successfully!' });
+      setTimeout(() => setIsSent(false), 5000);
+    } catch (error) {
+      console.error("Error sending email:", error);
+      setStatusMessage({ type: 'error', text: 'Failed to send message. Please try again later.' });
+    } finally {
+      setIsSending(false);
+    }
   };
 
   const info = [
@@ -96,6 +129,11 @@ export default function ContactSection() {
                 <label className="text-white/70 text-sm mb-1 block">Message</label>
                 <textarea rows={5} value={form.message} onChange={(e) => setForm({ ...form, message: e.target.value })} className="w-full rounded-md border border-white/10 bg-transparent px-3 py-2 text-white/90" placeholder="Your message..." required />
               </div>
+              {statusMessage && (
+                <div className={`px-4 py-2 rounded-md text-sm ${statusMessage.type === 'error' ? 'bg-red-600/10 text-red-300 border border-red-700/20' : 'bg-green-600/10 text-green-300 border border-green-700/20'}`}>
+                  {statusMessage.text}
+                </div>
+              )}
 
               <button type="submit" disabled={isSending} className={`w-full inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-white ${isSending ? 'bg-blue-500/70 cursor-not-allowed' : 'bg-gradient-to-r from-blue-500 to-blue-700'}`}>
                 <Send className={`w-4 h-4 ${isSending ? 'animate-spin' : ''}`} />
