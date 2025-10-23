@@ -2,10 +2,11 @@ import React from 'react'
 import Navbar from './component/Navbar'
 import HeroSection from './component/HeroSection'
 import ProjectsSection from './component/ProjectsSection'
+import ExperienceSection from './component/ExperienceSection'
 import SkillsSection from './component/SkillsSection'
-import EducationSection from './component/EducationSection'
 import ContactSection from './component/ContactSection'
 import Footer from './component/Footer'
+import AboutSection from './component/AboutSection'
 
 function App() {
   return (
@@ -15,7 +16,8 @@ function App() {
         <HeroSection />
         <SkillsSection />
         <ProjectsSection />
-        <EducationSection />
+  <ExperienceSection />
+        <AboutSection/>
         <ContactSection />
       </div>
       <Footer />

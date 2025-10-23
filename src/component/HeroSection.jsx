@@ -56,11 +56,11 @@ const HeroSection = () => {
                 Hire me
               </button>
               <a 
-                href="/cv.pdf" 
+                href="https://drive.google.com/file/d/127WsX608F2-Df_QJFUdOz_lKzNPZraqL/view?usp=sharing" 
                 className="border-blue-500/50 hover:bg-blue-500/10 px-5 py-2.5 rounded-full border inline-flex items-center text-sm text-white/90"
               >
                 <Download className="w-4 h-4 mr-2" />
-                Download CV
+                Check Resume
               </a>
             </div>
 
@@ -128,11 +128,10 @@ const HeroSection = () => {
                 Hire me
               </button>
               <a 
-                href="/cv.pdf" 
+                href="https://drive.google.com/file/d/127WsX608F2-Df_QJFUdOz_lKzNPZraqL/view?usp=sharing" 
                 className="border-blue-500/50 hover:bg-blue-500/10 px-5 py-2.5 rounded-full border inline-flex items-center text-sm text-white/90"
               >
-                <Download className="w-4 h-4 mr-2" />
-                Download CV
+                Check Resume
               </a>
             </div>
 

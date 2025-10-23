@@ -19,7 +19,7 @@ const categories = [
     id: "databases",
     title: "Databases",
     icon: Database,
-    skills: ["MySQL", "PostgreSQL", "MongoDB"],
+    skills: ["MySQL", "PostgreSQL", "MongoDB", "Supabase"],
   },
   {
     id: "tools",
@@ -31,7 +31,7 @@ const categories = [
     id: "blockchain",
     title: "Blockchain / Web3",
     icon: Lock,
-    skills: ["Smart contracts", "DApps", "MetaMask", "IPFS"],
+    skills: ["Solidity", "Foundry", "Rust", "IPFS", "Web3.js"],
   },
 ];
 

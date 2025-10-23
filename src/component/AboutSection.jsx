@@ -22,23 +22,23 @@ const AboutSection = () => {
 
             <div className='space-y-6'>
               <div className='space-y-2'>
-                <h4 className='text-base md:text-lg'>IUT Paris Descartes 75016</h4>
-                <p className='text-sm text-white/60'>2022 - 2026</p>
-                <span className='inline-block text-xs px-3 py-1 rounded-md bg-white/5 border border-white/10'>
-                  BACHELOR OF TECHNOLOGY IN COMPUTER SCIENCE
-                </span>
-                <p className='text-sm text-white/70'>Application development track: design, development, validation.</p>
+                  <h4 className='text-base md:text-lg'>IUT Paris Descartes 75016</h4>
+                  <p className='text-sm text-white/60'>2022 - 2026</p>
+                  <span className='inline-block text-xs px-3 py-1 rounded-md bg-white/5 border border-white/10'>
+                    BACHELOR OF TECHNOLOGY IN COMPUTER SCIENCE
+                  </span>
+                  <p className='text-sm text-white/70'>Application development track: design, development, validation.</p>
               </div>
 
               <div className='space-y-2'>
-                <h4 className='text-base md:text-lg'>Lycée Janson de Sailly 75016</h4>
+                <h4 className='text-base md:text-lg'>Janson de Sailly High School 75016</h4>
                 <p className='text-sm text-white/60'>2020 - 2022</p>
                 <span className='inline-block text-xs px-3 py-1 rounded-md bg-white/5 border border-white/10'>
-                  BAC STTD
+                  BAC STI2D
                 </span>
                 <div className='text-sm text-white/70 space-y-1'>
-                  <p>• Digital information systems specialty</p>
-                  <p>• Graduated in 2022</p>
+                  <p> Digital information systems specialty</p>
+                  <p> Graduated in 2022</p>
                 </div>
               </div>
             </div>

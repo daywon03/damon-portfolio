@@ -2,10 +2,10 @@ import HeroSection from "@/component/HeroSection";
 import Navbar from "@/component/Navbar";
 import SkillsSection from "@/component/SkillsSection";
 import ProjectsSection from "@/component/ProjectsSection";
+import ExperienceSection from "@/component/ExperienceSection";
 import ContactSection from "@/component/ContactSection";
 import Footer from "@/component/Footer";
 import AboutSection from "@/component/AboutSection";
-import EducationSection from "@/component/EducationSection";
 import Image from "next/image";
 
 export default function Home() {
@@ -16,8 +16,8 @@ export default function Home() {
         <HeroSection />
         <SkillsSection/>
         <ProjectsSection/>
+  <ExperienceSection/>
         <AboutSection/>
-        <EducationSection/>
         <ContactSection/>
       </div>
       <Footer/>
