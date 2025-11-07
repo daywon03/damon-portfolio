@@ -1,10 +1,9 @@
 "use client";
 import React from "react";
-// Using standard img tag instead of next/image
-import { ExternalLink, Zap, Users, Github, Trophy, Brain } from "lucide-react";
+import { Zap, Users, Github, Trophy, Brain } from "lucide-react";
+import { motion } from "framer-motion";
 
 const projects = [
-  // Hackathon projects (translated from French)
   {
     title: "Decentralized Payment System",
     type: "Hackathon",
@@ -29,7 +28,6 @@ const projects = [
     technologies: ["React", "TypeScript", "Python", "Mistral AI", "Docker", "ScaleWay"],
     githubUrl: "https://github.com/daywon03",
   },
-  // Existing projects
   {
     title: "Fintech Web Platform",
     type: "Professional Project",
@@ -56,30 +54,90 @@ const projects = [
   },
 ];
 
+// Animation variants
+const titleVariants = {
+  hidden: { opacity: 0, y: -50 },
+  visible: { 
+    opacity: 1, 
+    y: 0,
+    transition: { duration: 0.6, ease: "easeOut" }
+  }
+};
+
+const containerVariants = {
+  hidden: { opacity: 0 },
+  visible: {
+    opacity: 1,
+    transition: {
+      staggerChildren: 0.15
+    }
+  }
+};
+
+const cardVariants = {
+  hidden: { opacity: 0, y: 50, scale: 0.95 },
+  visible: {
+    opacity: 1,
+    y: 0,
+    scale: 1,
+    transition: {
+      duration: 0.5,
+      ease: "easeOut"
+    }
+  }
+};
+
 export default function ProjectsSection() {
   const getIcon = (type) => {
     if (/Hackathon/i.test(type)) return Zap;
     if (/(Pro|Prof|Professional)/i.test(type)) return Users;
     return Zap;
   };
+
   return (
     <section id="project" className="py-16">
       <div className="container mx-auto px-4">
-        <div className="text-center space-y-3 mb-10">
+        {/* Titre animé */}
+        <motion.div 
+          className="text-center space-y-3 mb-10"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.3 }}
+          variants={titleVariants}
+        >
           <h2 className="text-3xl md:text-4xl text-white">Projects & Achievements</h2>
           <div className="h-1 w-20 bg-gradient-to-r from-blue-400 to-blue-900 rounded-full mx-auto" />
-        </div>
+        </motion.div>
 
-        <div className="grid md:grid-cols-2 gap-6">
+        {/* Grid de projets avec stagger */}
+        <motion.div 
+          className="grid md:grid-cols-2 gap-6"
+          initial="hidden"
+          whileInView="visible"
+          viewport={{ once: true, amount: 0.1 }}
+          variants={containerVariants}
+        >
           {projects.map((p) => {
             const Icon = getIcon(p.type);
             return (
-              <div key={p.title} className="overflow-hidden bg-[#0f0f10] border border-white/10 rounded-xl hover:shadow-xl hover:shadow-blue-500/10 transition">
-                <div className="relative h-48">
+              <motion.div 
+                key={p.title} 
+                className="overflow-hidden bg-[#0f0f10] border border-white/10 rounded-xl transition"
+                variants={cardVariants}
+                whileHover={{ 
+                  y: -8,
+                  boxShadow: "0 20px 25px -5px rgba(59, 130, 246, 0.3)",
+                  transition: { duration: 0.3 }
+                }}
+              >
+                <motion.div 
+                  className="relative h-48"
+                  whileHover={{ scale: 1.05 }}
+                  transition={{ duration: 0.4 }}
+                >
                   <img src={p.image} alt={p.title} className="w-full h-full object-cover" />
                   <div className="absolute top-2 left-2">
                     {(() => {
-                      // Determine badge style and icon depending on project
                       const isHack = /hackathon/i.test(p.type);
                       const isBlockchain = p.technologies?.some((t) => /blockchain|solidity|ethereum|hardhat/i.test(t));
                       const isAI = /ai|mistral|python/i.test(p.title + ' ' + (p.technologies||[]).join(' '));
@@ -112,48 +170,113 @@ export default function ProjectsSection() {
                       }
 
                       return (
-                        <span className={`inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm font-medium ${bg} ${text}`}>
+                        <motion.span 
+                          className={`inline-flex items-center gap-3 rounded-full px-4 py-2 text-sm font-medium ${bg} ${text}`}
+                          initial={{ opacity: 0, scale: 0.8 }}
+                          whileInView={{ opacity: 1, scale: 1 }}
+                          viewport={{ once: true }}
+                          transition={{ delay: 0.3, duration: 0.4 }}
+                        >
                           <BadgeIcon className="w-5 h-5" />
                           {label}
-                        </span>
+                        </motion.span>
                       );
                     })()}
                   </div>
-                </div>
+                </motion.div>
+
                 <div className="p-6 space-y-4">
-                  <div className="flex items-start justify-between gap-2">
+                  <motion.div 
+                    className="flex items-start justify-between gap-2"
+                    initial={{ opacity: 0, x: -20 }}
+                    whileInView={{ opacity: 1, x: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.2, duration: 0.5 }}
+                  >
                     <h3 className="text-lg md:text-xl text-white">{p.title}</h3>
                     <div className="p-2 bg-blue-500/10 rounded-lg">
                       <Icon className="w-4 h-4 text-blue-400" />
                     </div>
-                  </div>
-                  <div className="flex items-center gap-2 text-xs md:text-sm text-white/60">
+                  </motion.div>
+
+                  <motion.div 
+                    className="flex items-center gap-2 text-xs md:text-sm text-white/60"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.3, duration: 0.5 }}
+                  >
                     <span>{p.event}</span>
                     <span>•</span>
                     <span>{p.date}</span>
-                  </div>
-                  <p className="text-sm text-white/80">{p.description}</p>
-                  <div className="flex flex-wrap gap-1.5 pt-2">
-                    {p.technologies.map((t) => (
-                      <span key={t} className="px-2 py-1 text-xs rounded-md border border-white/10 text-white/90 bg-white/5">
+                  </motion.div>
+
+                  <motion.p 
+                    className="text-sm text-white/80"
+                    initial={{ opacity: 0 }}
+                    whileInView={{ opacity: 1 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.4, duration: 0.5 }}
+                  >
+                    {p.description}
+                  </motion.p>
+
+                  <motion.div 
+                    className="flex flex-wrap gap-1.5 pt-2"
+                    initial={{ opacity: 0, y: 20 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.5, duration: 0.5 }}
+                  >
+                    {p.technologies.map((t, i) => (
+                      <motion.span 
+                        key={t} 
+                        className="px-2 py-1 text-xs rounded-md border border-white/10 text-white/90 bg-white/5"
+                        initial={{ opacity: 0, scale: 0.8 }}
+                        whileInView={{ opacity: 1, scale: 1 }}
+                        viewport={{ once: true }}
+                        transition={{ delay: 0.6 + (i * 0.05), duration: 0.3 }}
+                        whileHover={{ 
+                          scale: 1.1,
+                          backgroundColor: "rgba(59, 130, 246, 0.2)",
+                          borderColor: "rgba(59, 130, 246, 0.5)",
+                          transition: { duration: 0.2 }
+                        }}
+                      >
                         {t}
-                      </span>
+                      </motion.span>
                     ))}
-                  </div>
-                  <div className="pt-2">
-                    <a href={p.githubUrl || "https://github.com/daywon03"} target="_blank" rel="noopener noreferrer" className="inline-flex items-center gap-2 text-sm text-white border border-white/10 px-3 py-2 rounded-md bg-[#071018] hover:bg-white/3">
+                  </motion.div>
+
+                  <motion.div 
+                    className="pt-2"
+                    initial={{ opacity: 0, y: 10 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: 0.7, duration: 0.5 }}
+                  >
+                    <motion.a 
+                      href={p.githubUrl || "https://github.com/daywon03"} 
+                      target="_blank" 
+                      rel="noopener noreferrer" 
+                      className="inline-flex items-center gap-2 text-sm text-white border border-white/10 px-3 py-2 rounded-md bg-[#071018]"
+                      whileHover={{ 
+                        backgroundColor: "rgba(255, 255, 255, 0.05)",
+                        scale: 1.05,
+                        transition: { duration: 0.2 }
+                      }}
+                      whileTap={{ scale: 0.95 }}
+                    >
                       <Github className="w-4 h-4 text-white/90" />
                       View code
-                    </a>
-                  </div>
+                    </motion.a>
+                  </motion.div>
                 </div>
-              </div>
+              </motion.div>
             );
           })}
-        </div>
+        </motion.div>
       </div>
     </section>
   );
 }
-
-
