@@ -3,7 +3,7 @@ import { Mail, Phone, MapPin, Download, Github, Linkedin } from "lucide-react";
 import { TypeAnimation } from "react-type-animation";
 
 const HeroSection = () => {
-  const titles = ["Full stack developer", "Web3 developer"]; 
+  const titles = ["Full stack developer", "Web3 developer"];
   return (
     <section className="min-h-[90vh] flex items-center justify-center px-4">
       <div className="container mx-auto max-w-5xl">
@@ -23,16 +23,16 @@ const HeroSection = () => {
                 repeat={Infinity}
                 className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-semibold"
               />
-            </div>              
+            </div>
           </div>
 
           {/* Profile Image */}
           <div className="flex justify-center">
             <div className="relative">
               <div className="w-60 h-60 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-xl shadow-blue-500/10">
-                <img 
-                  src="/image/ProfilP-copie.png" 
-                  alt="BA DAMON" 
+                <img
+                  src="/image/ProfilP-copie.png"
+                  alt="BA DAMON"
                   className="w-full h-full object-cover"
                 />
               </div>
@@ -49,14 +49,14 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3">
-              <button 
+              <button
                 className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-5 py-2.5 rounded-full text-sm text-white"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Hire me
               </button>
-              <a 
-                href="https://drive.google.com/file/d/127WsX608F2-Df_QJFUdOz_lKzNPZraqL/view?usp=sharing" 
+              <a
+                href="https://drive.google.com/file/d/1M44Z3weHu7ZnckDJmWwo3LrbHHNS9Iry/view?usp=sharing"
                 className="border-blue-500/50 hover:bg-blue-500/10 px-5 py-2.5 rounded-full border inline-flex items-center text-sm text-white/90"
               >
                 <Download className="w-4 h-4 mr-2" />
@@ -68,8 +68,8 @@ const HeroSection = () => {
             <div className="space-y-1.5 text-xs pt-3">
               <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:badamon@gmail.com">
-                  badamon@gmail.com
+                <a href="mailto:damonb.pro@gmail.com">
+                  damonb.pro@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
@@ -95,7 +95,7 @@ const HeroSection = () => {
         </div>
 
         {/* Desktop Layout */}
-          <div className="hidden md:grid md:grid-cols-2 gap-10 items-center">
+        <div className="hidden md:grid md:grid-cols-2 gap-10 items-center">
           {/* Left - Text Content */}
           <div className="space-y-6">
             <div className="space-y-4">
@@ -112,7 +112,7 @@ const HeroSection = () => {
                     repeat={Infinity}
                     className="text-transparent bg-clip-text bg-gradient-to-r from-blue-400 to-blue-600 font-semibold"
                   />
-                </div>              
+                </div>
               </div>
               <p className="text-s text-muted-foreground">
                 I'm a self-learner, passionate and curious to dig deeper and expand my knowledge. With a positive attitude and a growth mindset, I am ready to make meaningful contributions and achieve great things.
@@ -121,14 +121,14 @@ const HeroSection = () => {
 
             {/* CTA Buttons */}
             <div className="flex flex-wrap gap-3">
-              <button 
+              <button
                 className="bg-gradient-to-r from-blue-500 to-blue-700 hover:from-blue-600 hover:to-blue-800 px-5 py-2.5 rounded-full text-sm text-white"
                 onClick={() => document.getElementById('contact')?.scrollIntoView({ behavior: 'smooth' })}
               >
                 Hire me
               </button>
-              <a 
-                href="https://drive.google.com/file/d/127WsX608F2-Df_QJFUdOz_lKzNPZraqL/view?usp=sharing" 
+              <a
+                href="https://drive.google.com/file/d/1M44Z3weHu7ZnckDJmWwo3LrbHHNS9Iry/view?usp=sharing"
                 className="border-blue-500/50 hover:bg-blue-500/10 px-5 py-2.5 rounded-full border inline-flex items-center text-sm text-white/90"
               >
                 Check Resume
@@ -168,9 +168,9 @@ const HeroSection = () => {
           <div className="flex justify-center md:justify-end">
             <div className="relative">
               <div className="w-72 h-72 rounded-full overflow-hidden border-2 border-blue-500/30 shadow-xl shadow-blue-500/10">
-                <img 
-                  src="/image/ProfilP-copie.png" 
-                  alt="BA DAMON" 
+                <img
+                  src="/image/ProfilP-copie.png"
+                  alt="BA DAMON"
                   className="w-full h-full object-cover"
                 />
               </div>

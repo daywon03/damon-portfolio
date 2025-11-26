@@ -71,9 +71,9 @@ export default function ContactSection() {
   };
 
   const info = [
-    { icon: Mail, label: "Email", value: "badamon3@gmail.com", href: "mailto:badamon3@gmail.com" },
-     { icon: Phone, label: "Phone", value: "+33 7 53 54 43 11", href: "tel:+33753544311" },
-     { icon: MapPin, label: "Address", value: "Paris, France", href: "https://maps.google.com" },
+    { icon: Mail, label: "Email", value: "damonb.pro@gmail.com", href: "mailto:damonb.pro@gmail.com" },
+    { icon: Phone, label: "Phone", value: "+33 7 53 54 43 11", href: "tel:+33753544311" },
+    { icon: MapPin, label: "Address", value: "Paris, France", href: "https://maps.google.com" },
   ];
 
   return (
@@ -87,7 +87,7 @@ export default function ContactSection() {
         <div className="grid md:grid-cols-2 gap-8">
           {/* Contact information (left) */}
           <div className="rounded-xl border border-white/10 p-6 bg-[#0b0b0b]">
-          <h3 className="text-2xl font-bold text-white mb-4">Contact information</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Contact information</h3>
             <div className="space-y-4">
               {info.map((i) => {
                 const Icon = i.icon;
@@ -106,7 +106,7 @@ export default function ContactSection() {
             </div>
 
             <hr className="my-6 border-t border-white/5" />
-              <p className="text-white/60">Socials</p>
+            <p className="text-white/60">Socials</p>
             <div className="flex gap-3 mt-3">
               <a href="#" className="p-2 bg-white/5 rounded-md">GitHub</a>
               <a href="#" className="p-2 bg-white/5 rounded-md">LinkedIn</a>
@@ -115,10 +115,10 @@ export default function ContactSection() {
 
           {/* Formulaire (droite) */}
           <div className="rounded-xl border border-white/10 p-6 bg-[#0b0b0b]">
-              <h3 className="text-2xl font-bold text-white mb-4">Contact me</h3>
+            <h3 className="text-2xl font-bold text-white mb-4">Contact me</h3>
             <form onSubmit={onSubmit} className="space-y-4">
               <div>
-                  <label className="text-white/70 text-sm mb-1 block">Name</label>
+                <label className="text-white/70 text-sm mb-1 block">Name</label>
                 <input value={form.name} onChange={(e) => setForm({ ...form, name: e.target.value })} className="w-full rounded-md border border-white/10 bg-transparent px-3 py-2 text-white/90" placeholder="Your name" required />
               </div>
               <div>
@@ -137,7 +137,7 @@ export default function ContactSection() {
 
               <button type="submit" disabled={isSending} className={`w-full inline-flex items-center justify-center gap-2 rounded-md px-4 py-2 text-white ${isSending ? 'bg-blue-500/70 cursor-not-allowed' : 'bg-gradient-to-r from-blue-500 to-blue-700'}`}>
                 <Send className={`w-4 h-4 ${isSending ? 'animate-spin' : ''}`} />
-                  {isSent ? "Message sent!" : isSending ? "Sending..." : "Send message"}
+                {isSent ? "Message sent!" : isSending ? "Sending..." : "Send message"}
               </button>
             </form>
           </div>
