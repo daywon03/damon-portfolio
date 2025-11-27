@@ -139,8 +139,8 @@ const HeroSection = () => {
             <div className="space-y-1.5 text-xs pt-3">
               <div className="flex items-center gap-2 text-muted-foreground hover:text-foreground transition-colors">
                 <Mail className="w-4 h-4" />
-                <a href="mailto:badamon@gmail.com">
-                  badamon@gmail.com
+                <a href="mailto:damonb.pro@gmail.com">
+                  damonb.pro@gmail.com
                 </a>
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
