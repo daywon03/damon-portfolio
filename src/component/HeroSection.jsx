@@ -78,7 +78,7 @@ const HeroSection = () => {
               </div>
               <div className="flex items-center gap-2 text-muted-foreground">
                 <MapPin className="w-4 h-4" />
-                <span>59 Avenue de Flandre, 75019 Paris</span>
+                <span>Paris, France</span>
               </div>
             </div>
 
