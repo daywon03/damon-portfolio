@@ -24,7 +24,7 @@ const projects = [
     description:
       "Conversational AI agent to optimize medical appointment booking and improve patient experience.",
     image:
-      "https://images.unsplash.com/photo-1518779578993-ec3579fee39f?q=80&w=1080&auto=format&fit=crop",
+      "https://images.unsplash.com/photo-1515879218367-8466d910aaa4?q=80&w=1080&auto=format&fit=crop",
     technologies: ["React", "TypeScript", "Python", "Mistral AI", "Docker", "ScaleWay"],
     githubUrl: "https://github.com/daywon03",
   },
